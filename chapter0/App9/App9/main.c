@@ -58,6 +58,7 @@ Step 3: So binary value of decimal number 25.7 will be
 
 void dec_to_hexa_conversion(long int fraDecimal) ;
 void dec_to_bin_conversion(long double fraDecimal);
+void dec_to_octal_conversion( long int decimalNumber);
 
 int main()
 {
@@ -66,6 +67,7 @@ int main()
     scanf("%Lf",&fraDecimal);
     dec_to_bin_conversion(fraDecimal);
     dec_to_hexa_conversion(fraDecimal);
+    dec_to_octal_conversion(fraDecimal);
     return 0;
 }
 void dec_to_bin_conversion(long double fraDecimal)
@@ -96,6 +98,25 @@ void dec_to_bin_conversion(long double fraDecimal)
     printf("Equivalent binary value: %Lf\t",fraBinary);
 }
 //integer part only!
+void dec_to_octal_conversion( long int decimalNumber)
+{
+    long int quotient;
+    int octalNumber[100],i=1,j;
+
+
+    quotient = decimalNumber;
+
+    while(quotient!=0)
+    {
+        octalNumber[i++]= quotient % 8;
+        quotient = quotient / 8;
+    }
+
+    printf("Equivalent octal value of decimal number %Ld is %o: ",decimalNumber,decimalNumber);
+    for(j = i -1 ; j> 0; j--)
+        printf("%d",octalNumber[j]);
+}
+
 void dec_to_hexa_conversion(long int decimal)
 {
 
